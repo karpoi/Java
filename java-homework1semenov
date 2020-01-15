@@ -1,0 +1,58 @@
+public class homework1semenov {
+    //задание 1
+    public static void main (String [] args) {
+        System.out.println("Homework1");
+        System.out.println(value(1, 2, 3, 4));
+        System.out.println(check(5, 6, true));
+        System.out.println(negORpos(4));
+        System.out.println(negcheck(5));
+        System.out.println(greetings("Vitaly"));
+
+
+
+//задание 2
+        int q = -1;
+        long w = 2000000l;
+        float e = 3.333f;
+        double r = 3.5;
+        boolean t = true;
+
+        System.out.println(q + w + e + r);
+        System.out.println(t);
+    }
+    //задание 3
+    public static float value (float a, float b, float c, float d) {
+        return a * (b + (c / d));
+    }
+    //задание 4
+    public static boolean check (int z, int x, boolean y) {
+        if ((z + x) >= 10 && (z + x) <= 20) {
+            y = true;
+        } else {
+            y = false;
+        }
+        return y;
+
+    }
+    //задание 5
+    public static void negORpos(int z) {
+        if (z >= 0)  {
+            System.out.println("Число положительное");
+        } else {
+            System.out.println("Число отрицательное");
+        }
+    }
+    //задание 6
+    public static boolean negcheck(int z) {
+        if (z <= 0)  {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+    //задание7
+    public static char greetings(String name) {
+       return System.out.println("Привет," + name + "!");
+    }
+}
