@@ -1,3 +1,5 @@
+//ошибки в 6 и 7 заданиях, не могу понять что не так.
+
 public class homework1semenov {
     //задание 1
     public static void main (String [] args) {
