@@ -90,4 +90,32 @@ public class homework2 {
                 }
 
             System.out.println(" ");
+       }
+      // Task 5
+// ** Задать одномерный массив и найти в нем минимальный и максимальный элементы
+// (без помощи интернета);
+        System.out.println(" ");
+        System.out.println("Task 5");
+        int[] arr4 = {1, 5, 3, 22, 11 };
+        System.out.println("Начальный массив");
+        for (int value : arr4) {
+            System.out.print(value + " ");
         }
+        System.out.println("");
+        y = arr4[0];
+        for (int x = 0; x < arr4.length; x++) {
+            if (arr4[x] > y) {
+                y = arr4[x];
+            }
+        }
+        System.out.println("Max " + y);
+        y = arr4[0];
+        for (int x = 0; x < arr4.length; x++) {
+            if (arr4[x] < y) {
+                y = arr4[x];
+            }
+        }
+        System.out.println("Min " + y);
+    }
+}
+
