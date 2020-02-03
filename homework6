@@ -1,0 +1,98 @@
+//1. Создать классы Собака и Кот с наследованием от класса Животное.
+//2. Животные могут выполнять действия: бежать, плыть, перепрыгивать препятствие. В качестве параметра каждому методу передается величина, означающая или длину препятствия (для бега и плавания), или высоту (для прыжков).
+//3. У каждого животного есть ограничения на действия (бег: кот 200 м., собака 500 м.; прыжок: кот 2 м., собака 0.5 м.; плавание: кот не умеет плавать, собака 10 м.).
+//4. При попытке животного выполнить одно из этих действий, оно должно сообщить результат в консоль. (Например, dog1.run(150); -> результат: run: true)
+//5. * Добавить животным разброс в ограничениях. То есть у одной собаки ограничение на бег может быть 400 м., у другой 600 м.
+
+import java.util.Random;
+
+public class Homework6
+{
+    public static void main(String[] args) {
+        Cat cat1 = new Cat("Masya");
+        Cat cat2 = new Cat("Ulis");
+        Cat cat3 = new Cat("Git");
+
+        Dog dog1 = new Dog("Alfi");
+        Dog dog2 = new Dog("Chaser");
+        Dog dog3 = new Dog("Chelsea");
+
+        cat1.info();
+        cat2.info();
+        cat3.info();
+
+        System.out.println();
+
+        dog1.info();
+        dog2.info();
+        dog3.info();
+
+        System.out.println();
+
+        cat1.run(1000);
+        cat1.swim(1);
+        cat1.jump(1);
+        
+        System.out.println();
+        
+        dog2.run(150);
+        dog2.swim(1);
+        dog2.jump(0.1);
+    }
+
+    public static class Animals {
+        protected String name;
+        protected String type;
+        protected int maxRun;
+        protected int maxSwim;
+        protected double maxJump;
+        public Random random = new Random();
+
+        public Animals(String name){
+            this.name = name; 
+        }
+
+        public void run(int dist) {
+            if (this.maxRun >= dist) System.out.println(this.type + " " + this.name + " run " + dist + " m.");
+            else System.out.println(this.type + " " + this.name + " can't do that");
+        }
+
+        public void swim(int dist) {
+            if (this.maxSwim >= dist) System.out.println(this.type + " " + this.name + " swim " + dist + " m.");
+            else System.out.println(this.type + " " + this.name + " can't do that");
+        }
+
+        public void jump(double height) {
+            if (this.maxJump >= height) System.out.println(this.type + " " + this.name + " jump " + height + " m.");
+            else System.out.println(this.type + " " + this.name + " can't do that");
+        }
+
+        public void info() {
+            System.out.println(this.type + " " + this.name + " Run: " + this.maxRun + " m., Swim: " + this.maxSwim + " m., Jump: " + this.maxJump + " m.");
+        }
+    }
+
+    public static class Cat extends Animals {
+        public Cat(String name) {
+            super(name);
+            this.maxJump = 2.0;
+            this.maxRun = random.nextInt(100) + 100;
+            this.type = "Cat";
+        }
+
+        @Override
+        public void swim(int dist) {
+            System.out.println("Cat can't swim");
+        }
+    }
+
+    public static class Dog extends Animals {
+        public Dog(String name) {
+            super(name);
+            this.type = "Dog";
+            this.maxRun = random.nextInt(400) + 200;
+            this.maxSwim = random.nextInt(10) + 1;
+            this.maxJump = random.nextInt(5) * 0.1;
+        }
+    }
+}
